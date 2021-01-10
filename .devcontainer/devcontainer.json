@@ -13,6 +13,8 @@
 		"dongli.python-preview",
     // Supporting of formats for container configuration
     "ms-azuretools.vscode-docker",
-    "irongeek.vscode-env"
+		"irongeek.vscode-env",
+		"streetsidesoftware.hunspell",
+		"zapu.vscode-aspell"
 	]
 }
