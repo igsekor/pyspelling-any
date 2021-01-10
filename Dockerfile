@@ -14,3 +14,6 @@ RUN apt-get update \
 RUN pip3 install pyspelling pyyaml
 
 COPY spellcheck.yaml /spellcheck.yaml
+
+WORKDIR /action
+ENTRYPOINT ["/entrypoint.sh"]
