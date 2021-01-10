@@ -1,0 +1,18 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.154.2/containers/docker-existing-dockerfile
+{
+	"name": "Spellcheck Action",
+	"context": "..",
+	"dockerFile": "../Dockerfile",
+	"extensions": [
+		"yzhang.markdown-all-in-one",
+		"editorconfig.editorconfig",
+		"ms-python.python",
+		"ms-toolsai.jupyter",
+		"kevinrose.vsc-python-indent",
+		"dongli.python-preview",
+    // Supporting of formats for container configuration
+    "ms-azuretools.vscode-docker",
+    "irongeek.vscode-env"
+	]
+}
