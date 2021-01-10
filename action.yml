@@ -1,0 +1,9 @@
+name: 'GitHub Spellcheck'
+description: 'A Github Action that spell checks for any languages by aspell / hunspell'
+author: Igor Korovchenko
+branding:
+  color: green
+  icon: type
+runs:
+  using: docker
+  image: 'docker://igsekor/pyspelling-any:tagname'
