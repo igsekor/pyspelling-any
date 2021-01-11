@@ -13,6 +13,7 @@ RUN apt-get update \
 
 RUN pip3 install pyspelling pyyaml
 
+COPY extract-lang.py /extract-lang.py
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
