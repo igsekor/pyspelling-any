@@ -1,11 +1,14 @@
 import yaml
 import sys
 
+def remove_duplicates(l):
+    return list(dict.fromkeys(l))
+
 def find_languges(yaml, starting_list = []):
     lang_list = starting_list
     if isinstance(yaml, dict):
         for k in yaml.keys():
-            if k == 'lang':
+            if k == 'lang' or k == 'd':
                 lang_list.append(yaml[k])
             elif isinstance(yaml[k], list):
                 for l in yaml[k]:
@@ -46,10 +49,16 @@ with open(sys.argv[1], 'r') as file:
     lang_list = find_languges(yaml)
     engine_list = find_engines(yaml)
 
+    output_list = []
     output_string = ''
 
     for e in engine_list:
         for l in lang_list:
-            output_string += ' ' + e + '-' + l
+            output_list.append(e + '-' + l)
 
-    print(output_string)
+    for l in remove_duplicates(output_list):
+        output_string += ' ' + l
+
+    output_string = output_string.replace('_', '-')
+
+    print(output_string.lower())
