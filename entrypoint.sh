@@ -14,7 +14,7 @@ fi
 
 echo "Starting..."
 echo "Setup languages and spelling tool..."
-apt-get install $(python /extract-lang.py $SPELLCHECK_CONFIG_FILE)
+apt-get install -y $(python /extract-lang.py $SPELLCHECK_CONFIG_FILE)
 
 rm -rf /var/lib/apt/lists/*
 
