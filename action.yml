@@ -6,4 +6,4 @@ branding:
   icon: type
 runs:
   using: docker
-  image: 'docker://igsekor/pyspelling-any:tagname'
+  image: 'docker://igsekor/pyspelling-any'
