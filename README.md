@@ -1,4 +1,4 @@
-![Spellcheck](https://github.com/narisoft/docs/workflows/Spellcheck/badge.svg)
+![Spellcheck](https://github.com/igsekor/pyspelling-any/workflows/Spellcheck/badge.svg)
 
 # GitHub Spellcheck
 
