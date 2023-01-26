@@ -24,8 +24,8 @@ pyspelling --config $SPELLCHECK_CONFIG_FILE
 
 EXITCODE=$?
 
-test $EXITCODE -gt 1 && echo "Spelling check action failed, please check diagnostics";
+test $EXITCODE -gt 1 && echo "\033[91Spelling check action failed, please check diagnostics\033[39m";
 
-test $EXITCODE -eq 1 && echo "Files in repository contain spelling errors";
+test $EXITCODE -eq 1 && echo "\033[91mFiles in repository contain spelling errors\033[39m";
 
 exit $EXITCODE
