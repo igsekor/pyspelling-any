@@ -12,6 +12,18 @@ else
     SPELLCHECK_CONFIG_FILE="spellcheck.yaml"
 fi
 
+echo ""
+echo ">>> Tools & Versions"
+echo "> python $(python --version)"
+echo ""
+echo "> pip3 $(pip --version)"
+echo ""
+echo "> pyspelling $(pip3 show pyspelling)"
+echo ""
+echo "> pyyaml $(pip3 show pyyaml)"
+echo "<<<"
+echo ""
+
 echo "Starting..."
 echo "Setup languages and spelling tool..."
 apt-get install -y $(python /extract-lang.py $SPELLCHECK_CONFIG_FILE)
