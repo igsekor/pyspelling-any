@@ -1,9 +1,16 @@
 name: 'GitHub Spellcheck'
-description: 'A Github Action that spell checks for any languages by aspell / hunspell'
+description: 'A GitHub Action that spell checks for any languages by aspell / hunspell'
 author: Igor Korovchenko
 branding:
   color: green
   icon: type
+inputs:
+  configFile:
+    description: 'The configuration file to use for spellchecking'
+    required: true
+    default: '.pyspelling.yml'
 runs:
   using: docker
   image: 'docker://igsekor/pyspelling-any'
+  args:
+    - ${{ inputs.configFile }}

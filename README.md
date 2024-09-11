@@ -6,24 +6,24 @@ Repository is created for the support of any languages that you need for spell c
 
 ## Features
 
-- Customizable configuration of spell checking using [Aspell](http://aspell.net) and [Hunspell](http://hunspell.github.io)  due to [docs](https://facelessuser.github.io/pyspelling/configuration/)
-- Support any formats of file to check
+- Customizable configuration of spell checking using [Aspell](http://aspell.net) and [Hunspell](http://hunspell.github.io) due to [docs](https://facelessuser.github.io/pyspelling/configuration/)
+- Support for any formats of file to check
 - Supports any languages from the list for [Aspell](https://ftp.gnu.org/gnu/aspell/dict/0index.html) and any languages for [Hunspell](https://en.wikipedia.org/wiki/Hunspell).
 
 ## Configuration
 
-1. First you have to add a configuration for the spelling checker
-2. Create a file named: `.spellcheck.yml` or `.spellcheck.yaml`, do note if both files exist the prior will have precedence. Do note the recommendation is _hidden_ files since these configuration files are not first rate citizens of your repository
-3. Paste the contents of the outlined example, which is a configuration for Markdown, useful for your README file
+1. First, you have to add a configuration for the spelling checker.
+2. Create a file named: `.spellcheck.yml` or `.spellcheck.yaml`. Note that if both files exist, `.spellcheck.yml` will take precedence. Hidden files are recommended for configuration since these files are not primary content of your repository.
+3. Paste the contents of the outlined example, which is a configuration for Markdown, useful for your README file.
 
-Do note that this action requires the contents of the repository, so it is recommended used with [the Checkout action][actioncheckout].
+Do note that this action requires the contents of the repository, so it is recommended to use it with [the Checkout action][actioncheckout].
 
-You have to define this part in your workflow, since it not a part of the action itself.
+You have to define this part in your workflow, as it is not a part of the action itself.
 
-Example:
+### Example Workflow
 
 ```yaml
-# This is workflow for spell checking using PySpelling lib (https://pypi.org/project/pyspelling/)
+# This is a workflow for spell checking using PySpelling lib (https://pypi.org/project/pyspelling/)
 name: Spellcheck
 # Controls when the action will run.
 on:
@@ -46,15 +46,17 @@ jobs:
       - uses: actions/checkout@v2
       - uses: igsekor/pyspelling-any@v0.0.2
         name: Spellcheck
+        with:
+          configFile: '.my-custom-config.yml' # Optional field
 ```
 
-Note the step: `- uses: actions/checkout@master`
-This file must live in a the `.github/workflows/` directory.
-For example, it could be `.github/workflows/spellcheck.yml`
+### Optional Field
 
-## Checking For Bad Spelling
+The action supports an optional `configFile` input parameter to specify a custom configuration file name. By default, it looks for `.spellcheck.yml` or `.spellcheck.yaml` files. You can override this default by providing a `configFile` input in the workflow as shown above.
 
-The GitHub Action helps you make sure _most_ spelling errors do not make it into your repository. You can however check your spelling prior to committing and pushing to your repository.
+### Checking For Bad Spelling
+
+The GitHub Action helps you make sure _most_ spelling errors do not make it into your repository. You can, however, check your spelling prior to committing and pushing to your repository.
 
 This simply uses the contents of our spelling toolchain:
 
@@ -67,14 +69,14 @@ Misspelled words:
 !!!Spelling check failed!!!
 ```
 
-And at some point we get:
+And at some point, you get:
 
 ```bash
 $ pyspelling -c .spellcheck.yml
 Spelling check passed :)
 ```
 
-Now we should be good to go.
+Now you should be good to go.
 
 Do note you could also use the `entrypoint.sh`, which is the script used in the Docker image.
 
@@ -98,3 +100,4 @@ The original author of this GitHub Action is Igor Korovchenko (@igsekor)
 ## Copyright and License
 
 This repository is licensed under the MIT license.
+
